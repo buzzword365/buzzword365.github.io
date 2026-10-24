@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="740" height="460" viewBox="0 0 740 460" role="img" aria-label="Illustration of a map and simulated route">
+  <rect width="740" height="460" rx="16" fill="#141B1A"/>
+  <path d="M0 75h740M0 155h740M0 235h740M0 315h740M0 395h740M80 0v460M170 0v460M260 0v460M350 0v460M440 0v460M530 0v460M620 0v460" stroke="#293733" stroke-width="2"/>
+  <path d="M-20 315q150-85 255-40t240-80t280 45" fill="none" stroke="#53695D" stroke-width="30" stroke-linecap="round"/>
+  <path d="M-20 315q150-85 255-40t240-80t280 45" fill="none" stroke="#9AAEA0" stroke-width="2" stroke-dasharray="10 14" />
+  <path d="M245 330Q370 420 475 190" fill="none" stroke="#C9FF88" stroke-width="5" stroke-dasharray="12 9" stroke-linecap="round"/>
+  <circle cx="245" cy="330" r="14" fill="#151B1A" stroke="#C9FF88" stroke-width="7"/>
+  <path d="M475 147c-24 0-43 19-43 43 0 32 43 77 43 77s43-45 43-77c0-24-19-43-43-43Z" fill="#C9FF88"/>
+  <circle cx="475" cy="190" r="14" fill="#18211B"/>
+  <rect x="34" y="34" width="271" height="80" rx="17" fill="#121817" stroke="#5C6C63"/>
+  <text x="57" y="67" fill="#C9FF88" font-family="Arial,Helvetica,sans-serif" font-size="15" font-weight="700" letter-spacing="3">SPOOF / BY ZIZ</text>
+  <text x="57" y="94" fill="#E4EAE4" font-family="Arial,Helvetica,sans-serif" font-size="15">iOS location testing tool</text>
+  <rect x="516" y="358" width="183" height="59" rx="14" fill="#C9FF88"/>
+  <text x="545" y="394" fill="#122016" font-family="Arial,Helvetica,sans-serif" font-size="19" font-weight="700">MAP  ↗</text>
+</svg>
