@@ -9,7 +9,7 @@ An original interactive portfolio for Ziz, deployed via GitHub Pages.
 - Sculptural Weather Eyes character on the home screen. The **entire pair of white eyes**, the pupils, and the face's slight tilt now follow pointer movement in sync; touch interactions work on the hero as well.
 - Full-screen animated navigation and scroll progress indicator.
 - Kinetic typography, editorial storytelling, marquee and reveal transitions.
-- Four interactive project cards with category filters and accessible detail dialogs.
+- Four interactive project cards with category filters and a live, keyboard-accessible project archive. Project details include features, technology, next/previous navigation (also via arrow keys) and real GitHub source links. The project count follows the active filter.
 - **3D Object Study:** an original glossy reflective torus-knot sculpture rendered in real time using Three.js. Drag to rotate with mouse or finger, or use arrow keys while the canvas is focused.
 - Three material finishes: Liquid Lime, Mirror Chrome and Obsidian. Reset the viewpoint, pause auto-rotation or save a PNG.
 - The moving neon-green banner is seamless and always wider than the viewport.

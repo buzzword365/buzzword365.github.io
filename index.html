@@ -108,7 +108,7 @@
 
     <section class="work-section section-pad" id="work" aria-labelledby="work-title">
       <div class="section-rail reveal"><span>02 / SELECTED BUILDS</span><span>AN EVER-EVOLVING COLLECTION</span></div>
-      <div class="work-heading reveal"><div><p class="eyebrow">THE INTERNET, BUT MAKE IT INTERESTING</p><h2 id="work-title">Things I've<br><em>put out there.</em></h2></div><div class="work-heading-side"><span class="work-count">04</span><p>PROJECTS TO PLAY WITH<br>AND MAYBE LEARN FROM.</p></div></div>
+      <div class="work-heading reveal"><div><p class="eyebrow">THE INTERNET, BUT MAKE IT INTERESTING</p><h2 id="work-title">Things I've<br><em>put out there.</em></h2></div><div class="work-heading-side"><span class="work-count" id="visible-project-count" aria-label="Number of visible projects" aria-live="polite">04</span><p>PROJECTS TO PLAY WITH<br>AND MAYBE LEARN FROM.</p></div></div>
       <div class="filter-bar reveal" role="group" aria-label="Filter projects">
         <button class="filter is-active" data-filter="all" type="button" aria-pressed="true">ALL <span>04</span></button>
         <button class="filter" data-filter="desktop" type="button" aria-pressed="false">DESKTOP <span>02</span></button>
@@ -210,11 +210,41 @@
 
   <footer class="footer"><div><a href="#top" class="footer-logo">ziz✳</a><span>ZIZ / <span id="year">2026</span> · MADE WITH CURIOSITY.</span></div><div class="footer-controls"><button class="footer-switch" id="theme-toggle" type="button" aria-pressed="false">THEME: <span>NOCTURNE</span></button><button class="footer-switch" id="motion-toggle" type="button" aria-pressed="true">MOTION: <span>ON</span></button><a href="./privacy.html">PRIVACY</a><a href="#top">BACK TO TOP ↑</a></div></footer>
 
-  <dialog id="project-dialog" class="project-dialog" aria-labelledby="dialog-title">
-    <button type="button" class="dialog-close" id="dialog-close" aria-label="Close project details">✕</button>
+  <dialog id="project-dialog" class="project-dialog" aria-labelledby="dialog-title" aria-describedby="dialog-description">
+    <div class="case-header">
+      <span><span class="case-indicator" aria-hidden="true"></span> ZIZ / PROJECT ARCHIVE</span>
+      <span id="dialog-count" aria-label="Project position">01 / 04</span>
+      <button type="button" class="dialog-close" id="dialog-close" aria-label="Close project details">✕</button>
+    </div>
     <div class="dialog-content">
-      <div class="dialog-media"><img id="dialog-image" src="./assets/weather-preview.svg" alt="" width="740" height="460"></div>
-      <div class="dialog-text"><p class="eyebrow" id="dialog-index">SELECTED PROJECT / 001</p><h2 id="dialog-title">Weather Eyes</h2><p id="dialog-description"></p><div class="dialog-stack" id="dialog-stack"></div><div class="dialog-footer"><a id="dialog-link" href="https://github.com/buzzword365/weather-eyes" target="_blank" rel="noopener noreferrer">VIEW SOURCE CODE <span aria-hidden="true">↗</span></a><span>BUILT WITH CURIOSITY.</span></div></div>
+      <div class="dialog-media">
+        <img id="dialog-image" src="./assets/weather-preview.svg" alt="Weather Eyes illustration" width="740" height="460">
+        <span id="dialog-image-caption" class="dialog-image-caption">001 / DESKTOP EXPERIMENT</span>
+      </div>
+      <div class="dialog-text">
+        <p class="eyebrow" id="dialog-index">001 / DESKTOP EXPERIMENT</p>
+        <h2 id="dialog-title">Weather Eyes</h2>
+        <p id="dialog-description">A living macOS wallpaper with expressive eyes and real-weather visuals.</p>
+        <div class="dialog-detail">
+          <h3>WHAT IT DOES</h3>
+          <ul id="dialog-features"><li>Weather-responsive visuals</li><li>Cursor-following eyes</li><li>User-selected location</li></ul>
+        </div>
+        <div class="dialog-tech">
+          <h3>BUILT WITH</h3>
+          <div class="dialog-stack" id="dialog-stack"></div>
+        </div>
+        <div class="dialog-footer">
+          <a id="dialog-link" href="https://github.com/buzzword365/weather-eyes" target="_blank" rel="noopener noreferrer">EXPLORE ON GITHUB <span aria-hidden="true">↗</span></a>
+          <span>OPEN-SOURCE PROJECT</span>
+        </div>
+      </div>
+    </div>
+    <div class="case-bottom">
+      <span>USE ARROW KEYS TO BROWSE</span>
+      <div class="case-bottom-actions">
+        <button type="button" id="dialog-prev" aria-label="Previous project"><span aria-hidden="true">←</span> PREV</button>
+        <button type="button" id="dialog-next" aria-label="Next project">NEXT <span aria-hidden="true">→</span></button>
+      </div>
     </div>
   </dialog>
 </body>

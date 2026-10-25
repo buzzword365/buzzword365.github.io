@@ -9,10 +9,10 @@
   const set=(key,val)=>{try{localStorage.setItem(key,val)}catch{}};
 
   const projects={
-    weather:{index:'001 / DESKTOP EXPERIMENT',title:'Weather Eyes',description:'A living macOS wallpaper. It responds to real weather for a location you choose, and its curious eyes watch your cursor. Rain, snow, daily colourway rolls and all those little interactions make it feel like a companion.',image:'weather-preview.svg',alt:'Weather Eyes dark green project illustration',stack:['Swift','WebKit','JavaScript','Canvas','Open-Meteo'],url:'https://github.com/buzzword365/weather-eyes'},
-    sonora:{index:'002 / MUSIC EXPERIENCE',title:'Sonora Music',description:'A local-first music player for macOS, built for a beautiful listening experience. Organise your files, enjoy playlists, control playback and pair a phone companion on your local network. The public release includes the compiled React frontend.',image:'sonora-preview.svg',alt:'Sonora Music neon-green record illustration',stack:['Electron','React','Node.js','JavaScript'],url:'https://github.com/buzzword365/sonora-music'},
-    spoof:{index:'003 / DEVELOPER UTILITY',title:'Spoof by Ziz',description:'A locally hosted, map-driven iPhone location simulation utility for app development and testing. Explore a route on a map and send test coordinates to a USB-connected device you control.',image:'spoof-preview.svg',alt:'Spoof by Ziz route map illustration',stack:['Python','Swift','Leaflet','OpenStreetMap'],url:'https://github.com/buzzword365/spoof-by-ziz'},
-    notes:{index:'004 / STUDY TOOL',title:'Class Notes',description:'A local-first study companion that turns live class speech into transcripts, extracts homework and assessment tasks, and keeps study notes and timetables organised. The public version has no preloaded school information.',image:'class-notes-preview.svg',alt:'Class Notes lavender study illustration',stack:['Python','PySide6','SQLite','Whisper','Ollama'],url:'https://github.com/buzzword365/class-notes'}
+    weather:{index:'001 / DESKTOP EXPERIMENT',title:'Weather Eyes',description:'A living macOS wallpaper. It responds to real weather for a location you choose, and its curious eyes watch your cursor. Rain, snow, daily colourway rolls and all those little interactions make it feel like a companion.',features:['Weather-driven wallpaper visuals','Cursor-responsive eyes','User-chosen location'],image:'weather-preview.svg',alt:'Weather Eyes dark green project illustration',stack:['Swift','WebKit','JavaScript','Canvas','Open-Meteo'],url:'https://github.com/buzzword365/weather-eyes'},
+    sonora:{index:'002 / MUSIC EXPERIENCE',title:'Sonora Music',description:'A local-first music player for macOS, built for a beautiful listening experience. Organise your files, enjoy playlists, control playback and pair a phone companion on your local network. The public release includes the compiled React frontend.',features:['Local music-library playback','Queue and playlist controls','Phone companion on a local network'],image:'sonora-preview.svg',alt:'Sonora Music neon-green record illustration',stack:['Electron','React','Node.js','JavaScript'],url:'https://github.com/buzzword365/sonora-music'},
+    spoof:{index:'003 / DEVELOPER UTILITY',title:'Spoof by Ziz',description:'A locally hosted, map-driven iPhone location simulation utility for app development and testing. Explore a route on a map and send test coordinates to a USB-connected device you control.',features:['Map-based location testing','USB-connected device support','Local developer workflow'],image:'spoof-preview.svg',alt:'Spoof by Ziz route map illustration',stack:['Python','Swift','Leaflet','OpenStreetMap'],url:'https://github.com/buzzword365/spoof-by-ziz'},
+    notes:{index:'004 / STUDY TOOL',title:'Class Notes',description:'A local-first study companion that turns live class speech into transcripts, extracts homework and assessment tasks, and keeps study notes and timetables organised. The public version has no preloaded school information.',features:['On-device class transcription','Homework and test-date extraction','Private timetable and study notes'],image:'class-notes-preview.svg',alt:'Class Notes lavender study illustration',stack:['Python','PySide6','SQLite','Whisper','Ollama'],url:'https://github.com/buzzword365/class-notes'}
   };
 
   $('#year').textContent=String(new Date().getFullYear());
@@ -120,22 +120,66 @@
   }else $$('.reveal').forEach(el=>el.classList.add('is-visible'));
 
   const dialog=$('#project-dialog'),close=$('#dialog-close');
-  let dialogFocus=null;
-  function showProject(key){
+  let dialogFocus=null,currentProject=null;
+  const projectCards=$$('.project-card');
+  const visibleProjects=()=>projectCards.filter(card=>!card.hidden).map(card=>card.dataset.project);
+
+  function updateProject(key){
     const data=projects[key];
     if(!data)return;
-    dialogFocus=document.activeElement;
+    currentProject=key;
     $('#dialog-index').textContent=data.index;
     $('#dialog-title').textContent=data.title;
     $('#dialog-description').textContent=data.description;
     $('#dialog-image').src='./assets/'+data.image;
     $('#dialog-image').alt=data.alt;
+    $('#dialog-image-caption').textContent=data.index;
     $('#dialog-link').href=data.url;
-    const pills=data.stack.map(name=>{const el=document.createElement('span');el.textContent=name;return el});
-    $('#dialog-stack').replaceChildren(...pills);
-    if(typeof dialog.showModal==='function'){dialog.showModal();document.body.classList.add('modal-open');close.focus()}
-    else window.open(data.url,'_blank','noopener,noreferrer');
+    $('#dialog-features').replaceChildren(...data.features.map(name=>{
+      const item=document.createElement('li');item.textContent=name;return item;
+    }));
+    $('#dialog-stack').replaceChildren(...data.stack.map(name=>{
+      const tag=document.createElement('span');tag.textContent=name;return tag;
+    }));
+    const choices=visibleProjects();
+    const position=choices.indexOf(key);
+    const count=String(position+1).padStart(2,'0')+' / '+String(choices.length).padStart(2,'0');
+    $('#dialog-count').textContent=count;
+    const previous=choices[(position-1+choices.length)%choices.length];
+    const next=choices[(position+1)%choices.length];
+    const prevButton=$('#dialog-prev'),nextButton=$('#dialog-next');
+    prevButton.disabled=choices.length<2;
+    nextButton.disabled=choices.length<2;
+    prevButton.setAttribute('aria-label','Previous project: '+(projects[previous]?.title||''));
+    nextButton.setAttribute('aria-label','Next project: '+(projects[next]?.title||''));
+    dialog.scrollTop=0;
   }
+  function showProject(key){
+    if(!projects[key])return;
+    if(!dialog.open)dialogFocus=document.activeElement;
+    updateProject(key);
+    if(!dialog.open){
+      if(typeof dialog.showModal==='function'){
+        dialog.showModal();document.body.classList.add('modal-open');close.focus();
+      }else window.open(projects[key].url,'_blank','noopener,noreferrer');
+    }
+  }
+  function stepProject(direction){
+    const choices=visibleProjects();
+    if(choices.length<2)return;
+    const i=choices.indexOf(currentProject);
+    if(i<0)return;
+    updateProject(choices[(i+direction+choices.length)%choices.length]);
+  }
+  $('#dialog-prev').addEventListener('click',()=>stepProject(-1));
+  $('#dialog-next').addEventListener('click',()=>stepProject(1));
+  dialog.addEventListener('keydown',ev=>{
+    if(ev.altKey||ev.ctrlKey||ev.metaKey||ev.shiftKey)return;
+    if(ev.key==='ArrowLeft'||ev.key==='ArrowRight'){
+      ev.preventDefault();
+      stepProject(ev.key==='ArrowRight'?1:-1);
+    }
+  });
   $$('.project-card').forEach(card=>{
     card.addEventListener('click',ev=>{
       if(ev.metaKey||ev.ctrlKey||ev.shiftKey||ev.altKey||ev.button!==0)return;
@@ -167,6 +211,7 @@
       card.hidden=!visible;if(visible)count++;
     });
     $('#no-results').hidden=count>0;
+    $('#visible-project-count').textContent=String(count).padStart(2,'0');
     $('#project-grid').setAttribute('aria-label',String(count)+' projects shown');
   }));
 

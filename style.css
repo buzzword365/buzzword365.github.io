@@ -536,3 +536,176 @@ html[data-theme="light"] .full-menu .menu-toggle{color:#152015}
 html[data-theme="light"] .giant-link{color:#182319}
 html[data-theme="light"] .giant-link:hover{background:#508120;color:#fbfff5}
 html[data-theme="light"] .giant-link:hover span{background:#fbfff5;color:#508120}
+
+
+/* Interactive project archive / designed as a readable editorial case study */
+.project-dialog{
+  width:min(1190px,calc(100% - 32px));
+  max-height:min(94dvh,1000px);
+  border:1px solid #667a60;
+  border-radius:0;
+  background:#121b13;
+  color:#f0f7e8;
+  overscroll-behavior:contain;
+  scrollbar-color:#648455 #121b13;
+  box-shadow:0 40px 120px #000b;
+}
+.project-dialog::backdrop{background:rgba(3,10,5,.86);backdrop-filter:blur(12px)}
+.case-header{
+  position:sticky;top:0;z-index:30;
+  display:flex;align-items:center;gap:22px;justify-content:space-between;
+  min-height:74px;padding:12px clamp(21px,3vw,40px);
+  background:#121b13;border-bottom:1px solid #3d5540;
+  color:#bfeea4;font:500 10px var(--mono);letter-spacing:.11em
+}
+.case-header>span:first-child{display:flex;align-items:center;gap:11px}
+.case-indicator{width:7px;height:7px;background:#d0ff7c;border-radius:50%;box-shadow:0 0 11px #d0ff7c}
+#dialog-count{font:500 12px var(--mono);color:#d0ff7c;margin-left:auto}
+.case-header .dialog-close{
+  position:static;float:none;right:auto;top:auto;margin:0;
+  display:grid;place-items:center;z-index:1;width:42px;height:42px;
+  flex:none;background:#d0ff7c;color:#10200c;border:0;border-radius:50%;
+  font-size:18px;transition:transform .2s,background .2s
+}
+.case-header .dialog-close:hover{transform:rotate(90deg);background:#eaffbf}
+.project-dialog .dialog-content{
+  display:grid;grid-template-columns:1.08fr .92fr;
+  min-height:530px;align-items:stretch
+}
+.project-dialog .dialog-media{
+  position:relative;min-height:530px;overflow:hidden;align-items:stretch;
+  background:radial-gradient(ellipse at center,#26412c,#09130c);
+  border-right:1px solid #35543b;
+}
+.project-dialog .dialog-media img{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center;
+}
+.dialog-image-caption{
+  position:absolute;left:25px;bottom:25px;z-index:2;
+  padding:10px 14px;
+  background:#09120cdd;border:1px solid #7da17488;
+  backdrop-filter:blur(12px);color:#edffe1;
+  font:500 10px var(--mono);letter-spacing:.08em
+}
+.project-dialog .dialog-text{
+  padding:clamp(30px,3.9vw,58px);
+  display:flex;flex-direction:column;align-items:stretch
+}
+.project-dialog .dialog-text h2{
+  font-size:clamp(52px,5.2vw,82px);letter-spacing:-.084em;
+  margin:21px 0 20px;line-height:.96;
+  overflow-wrap:break-word
+}
+.project-dialog .dialog-text>p:not(.eyebrow){
+  max-width:40ch;margin:0 0 30px;
+  color:#bdcdb8;font-size:clamp(15px,1.35vw,18px);line-height:1.67
+}
+.project-dialog .dialog-text .eyebrow{margin:0;color:#d0ff7c}
+.dialog-detail{
+  margin:2px 0 25px;
+  padding:23px 0 0;border-top:1px solid #395440
+}
+.dialog-detail h3,.dialog-tech h3{
+  margin:0 0 15px;
+  color:#85a584;font:500 10px var(--mono);letter-spacing:.14em
+}
+.dialog-detail ul{
+  display:grid;grid-template-columns:1fr;gap:10px;
+  list-style:none;padding:0;margin:0
+}
+.dialog-detail li{
+  color:#e0eed9;font-size:14px;line-height:1.45;
+  display:flex;gap:13px;align-items:baseline
+}
+.dialog-detail li::before{content:"↗";color:#d0ff7c;font-size:13px;font-weight:700}
+.dialog-tech{padding:22px 0;border-top:1px solid #395440}
+.project-dialog .dialog-stack{display:flex;gap:7px;flex-wrap:wrap}
+.project-dialog .dialog-stack span{
+  color:#d8f1d0;border-color:#567657;background:#1a291c;
+  padding:8px 10px;border-radius:2px
+}
+.project-dialog .dialog-footer{
+  margin-top:auto;padding-top:19px;
+  display:flex;align-items:center;justify-content:space-between;gap:18px
+}
+.project-dialog .dialog-footer>a{
+  display:flex;justify-content:space-between;align-items:center;min-width:205px;
+  gap:16px;background:#d0ff7c;color:#122010;padding:15px 18px;
+  font:600 11px var(--mono);letter-spacing:.04em;transition:background .18s,transform .18s
+}
+.project-dialog .dialog-footer>a:hover{background:#ebffbe;transform:translateY(-2px)}
+.project-dialog .dialog-footer>a span{font-size:21px}
+.project-dialog .dialog-footer>span{font:500 9px var(--mono);white-space:nowrap;letter-spacing:.08em;color:#92ac8b}
+.case-bottom{
+  position:sticky;bottom:0;z-index:10;
+  min-height:79px;display:flex;align-items:center;justify-content:space-between;
+  gap:20px;padding:10px clamp(21px,3vw,40px);
+  background:#18251a;border-top:1px solid #466448;
+  color:#8caa88;font:500 10px var(--mono);letter-spacing:.07em
+}
+.case-bottom-actions{display:flex;gap:9px}
+.case-bottom button{
+  border:1px solid #678366;background:#192b1b;color:#ecffe0;
+  min-width:118px;min-height:45px;display:flex;
+  justify-content:space-between;align-items:center;gap:18px;
+  padding:8px 14px;
+  font:600 11px var(--mono);transition:background .2s,color .2s
+}
+.case-bottom button:hover:not(:disabled){background:#d0ff7c;color:#142013}
+.case-bottom button:disabled{opacity:.3;cursor:not-allowed}
+.case-bottom button span{font-size:19px}
+.project-card:focus-visible .project-art::after{border:2px solid #d0ff7c}
+.project-card:focus-visible{outline:3px solid #d0ff7c;outline-offset:5px}
+@media(max-width:800px){
+  .project-dialog{width:calc(100% - 22px);max-height:93dvh}
+  .project-dialog .dialog-content{display:flex;flex-direction:column;min-height:0}
+  .project-dialog .dialog-media{min-height:0;aspect-ratio:740 / 460;border-right:0;border-bottom:1px solid #35543b}
+  .project-dialog .dialog-media img{object-fit:cover}
+  .project-dialog .dialog-text{padding:26px clamp(20px,5vw,32px) 32px}
+  .project-dialog .dialog-text h2{font-size:clamp(47px,10vw,72px);margin:16px 0}
+  .project-dialog .dialog-text>p:not(.eyebrow){font-size:16px;margin-bottom:24px}
+  .dialog-image-caption{left:15px;bottom:15px;padding:7px 10px;font-size:9px}
+  .project-dialog .dialog-footer{padding-top:16px}
+  .case-header{min-height:67px}
+  .case-bottom{min-height:68px}
+}
+@media(max-width:440px){
+  .case-bottom>span{display:none}
+  .case-bottom-actions{width:100%;justify-content:space-between}
+  .case-bottom button{flex:1}
+  .project-dialog .dialog-footer>span{display:none}
+  .project-dialog .dialog-footer>a{width:100%}
+  .project-dialog .dialog-media{aspect-ratio:740 / 460}
+}
+@media(prefers-reduced-motion:reduce){
+  .project-dialog[open]{animation:none}
+  .project-dialog .dialog-footer>a,.case-header .dialog-close{transition:none}
+}
+
+/* Preserve the complete illustrated artwork in tall desktop panels. */
+@media(min-width:801px){
+  .project-dialog .dialog-media{
+    background:
+      radial-gradient(ellipse at 50% 51%,#27482c 0%,#112116 46%,#09140d 100%);
+  }
+  .project-dialog .dialog-media img{
+    object-fit:contain;
+    filter:drop-shadow(0 25px 40px #0007);
+  }
+  .project-dialog .dialog-media:before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:
+      linear-gradient(#caff8509 1px,transparent 1px),
+      linear-gradient(90deg,#caff8509 1px,transparent 1px);
+    background-size:72px 72px;
+  }
+}
+
+/* Match the original 740 × 460 illustrations without cutting off their labels. */
+@media(max-width:800px){
+  .project-dialog .dialog-media img{object-fit:contain;background:#0d1b11}
+}
+
+/* Legible supporting metadata: small monospace tags must not fade into the panel. */
+.project-number,.project-tags{color:var(--muted)}
