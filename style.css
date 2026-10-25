@@ -172,30 +172,6 @@ img{max-width:100%;display:block}
 .no-results{padding:50px 0;color:var(--muted)}
 .work-bottom{display:flex;align-items:center;justify-content:space-between;gap:25px;padding-top:60px;font:500 10px var(--mono);letter-spacing:.06em;color:var(--dim)}
 .underline-link{color:var(--text);border-bottom:1px solid var(--lime);padding-bottom:10px}
-.lab-section{background:#121915;color:#f0f3e9;padding:75px clamp(22px,5vw,85px) 120px;position:relative;overflow:hidden}
-.lab-section .section-rail{color:#97b09b;border-color:#a8e3a533}
-.lab-copy{max-width:880px;padding:90px 0 55px}
-.lab-copy .eyebrow{display:flex;align-items:center;gap:12px}
-.lab-copy h2{font-size:clamp(62px,9vw,142px);letter-spacing:-.083em;font-weight:700;line-height:.94;margin:22px 0 30px}
-.lab-copy h2 em{font-style:normal;color:#d0ff7c}
-.lab-copy>p:last-child{font-size:clamp(15px,1.65vw,21px);color:#9aaf9e;line-height:1.6;max-width:510px}
-.lab-display{height:clamp(340px,55vw,645px);border:1px solid #55725466;background:radial-gradient(ellipse at center,#24462b 0%,#111e15 46%,#101711 100%);position:relative;isolation:isolate;overflow:hidden;touch-action:pan-y;cursor:crosshair}
-.lab-display canvas{width:100%;height:100%;display:block;position:absolute;inset:0}
-.lab-display:after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:repeating-linear-gradient(to right,transparent,transparent 99px,rgba(154,236,146,.033) 100px),repeating-linear-gradient(to bottom,transparent,transparent 99px,rgba(154,236,146,.033) 100px)}
-.lab-marker{position:absolute;z-index:3;color:#c4f4ae;font:500 11px var(--mono);letter-spacing:.06em}
-.marker-tl{top:27px;left:30px}.marker-tr{top:27px;right:30px}.marker-bl{bottom:27px;left:30px}.marker-br{bottom:27px;right:30px}
-.lab-cross{position:absolute;font:400 38px var(--sans);color:#b7ff9544;pointer-events:none}
-.lab-cross-a{left:15%;top:28%}.lab-cross-b{right:14%;bottom:25%}
-.lab-center-label{position:absolute;pointer-events:none;top:50%;left:50%;transform:translate(-50%,-50%);z-index:1;white-space:nowrap;color:#cfff9b33;font-size:clamp(27px,6.5vw,94px);font-weight:800;letter-spacing:-.08em}
-.lab-controls{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;padding-top:25px}
-.lab-control-label{font:500 11px var(--mono);color:#c3d7c3;display:flex;align-items:center;gap:12px}
-.lab-control-label span{font-size:19px;color:#d0ff7c}
-.intensity{display:flex;align-items:center;gap:12px;font:500 11px var(--mono);color:#a7bbaa}
-.intensity input{accent-color:#d0ff7c;width:116px;cursor:pointer}
-.intensity output{color:#d0ff7c;width:38px}
-.outline-button{font:500 10px var(--mono);color:#d9f0d4;border:1px solid #708c72;background:none;padding:16px 18px;white-space:nowrap;transition:background .2s,color .2s}
-.outline-button:hover{background:#d0ff7c;color:#101711}
-.outline-button span{margin-left:10px}
 .statement-section{min-height:700px;background:var(--lime);color:var(--ink);padding:100px clamp(22px,5vw,85px);display:grid;place-items:center;text-align:center;overflow:hidden}
 .statement-inner{position:relative;width:100%;max-width:1250px}
 .statement-mark{position:absolute;left:0;top:0;font-size:90px;animation:slow-spin 20s linear infinite}
@@ -250,7 +226,6 @@ img{max-width:100%;display:block}
   .header-center{display:none}
   .intro-grid{grid-template-columns:19% 81%}
   .project-grid{gap:38px 20px}
-  .lab-control-label{width:100%}
 }
 @media(max-width:760px){
   html{scroll-padding-top:68px}
@@ -288,12 +263,6 @@ img{max-width:100%;display:block}
   .project-art{aspect-ratio:1.46}
   .project-arrow{opacity:1;transform:scale(.75)}
   .work-bottom{flex-wrap:wrap}
-  .lab-section{padding:66px 23px 95px}
-  .lab-copy{padding:65px 0 35px}
-  .lab-copy h2{font-size:clamp(61px,10vw,90px)}
-  .lab-display{height:390px}
-  .lab-marker{font-size:9px}.marker-tl{top:18px;left:17px}.marker-tr{top:18px;right:17px}.marker-bl{bottom:18px;left:17px}.marker-br{bottom:18px;right:17px}
-  .lab-controls{gap:18px}
   .statement-section{min-height:560px;padding:60px 22px}
   .statement-mark{font-size:55px}
   .statement-inner p{font-size:clamp(48px,9vw,75px)}
@@ -325,8 +294,6 @@ img{max-width:100%;display:block}
   .project-info h3{font-size:35px}
   .project-info p{font-size:14px}
   .project-arrow{width:55px;height:55px}
-  .lab-controls .lab-control-label{margin-bottom:0}
-  .lab-controls button{flex:1}
   .statement-inner p{font-size:48px}
   .outro-section h2{font-size:clamp(58px,15vw,77px)}
   .giant-link{gap:25px;padding:10px 15px 10px 21px;font-size:11px}
@@ -340,7 +307,6 @@ img{max-width:100%;display:block}
   .work-heading h2{font-size:51px}
   .hero h1{font-size:58px}
   .outro-section h2{font-size:58px}
-  .lab-copy h2{font-size:56px}
 }
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}
@@ -350,3 +316,307 @@ img{max-width:100%;display:block}
 html.motion-off *,html.motion-off *::before,html.motion-off *::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}
 html.motion-off .reveal{opacity:1!important;transform:none!important}
 html.motion-off .intro{display:none!important}
+
+
+/* ── ZIZ PORTAL / three-dimensional-looking generative worlds ───── */
+.lab-section{
+  background:#090f0b;
+  color:#eef4e8;
+  padding:85px clamp(22px,5vw,85px) 125px;
+  isolation:isolate;
+}
+.lab-section .section-rail{color:#91a993;border-color:#4c684e66}
+.portal-intro{
+  display:grid;
+  grid-template-columns:minmax(0,1.25fr) minmax(230px,.6fr);
+  gap:40px;
+  align-items:end;
+  padding:90px 0 72px;
+}
+.portal-intro .eyebrow{display:flex;gap:12px;align-items:center;color:#d0ff7c}
+.portal-intro h2{
+  margin:26px 0 0;
+  font-size:clamp(76px,11vw,172px);
+  font-weight:800;
+  letter-spacing:-.092em;
+  line-height:.85;
+}
+.portal-intro h2 em{
+  display:inline-block;
+  padding-right:.08em;
+  font-style:normal;
+  color:#d0ff7c;
+}
+.portal-intro>p{
+  margin:0 0 7px;
+  max-width:360px;
+  color:#b1c4b1;
+  font-size:clamp(17px,1.4vw,20px);
+  line-height:1.65;
+}
+.portal-experience{
+  border:1px solid #638f6473;
+  background:#070e09;
+  box-shadow:0 45px 140px #0008, 0 0 0 5px #75997307;
+}
+.portal-stage{
+  height:clamp(490px,59vw,750px);
+  position:relative;
+  overflow:hidden;
+  background:radial-gradient(ellipse at 50% 50%,#234d28 0%,#071309 40%,#030705 100%);
+  cursor:crosshair;
+  isolation:isolate;
+}
+.portal-stage canvas{
+  position:absolute;
+  inset:0;
+  display:block;
+  width:100%;
+  height:100%;
+  touch-action:pan-y;
+  outline-offset:-7px;
+}
+.portal-stage .portal-shade{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  z-index:1;
+  background:
+    linear-gradient(180deg,#030804d5 0%,transparent 24%,transparent 69%,#030804cb 100%),
+    radial-gradient(ellipse at 50% 50%,transparent 24%,#01030173 95%);
+  mix-blend-mode:normal;
+}
+.portal-stage:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:2;
+  pointer-events:none;
+  opacity:.2;
+  background:repeating-linear-gradient(0deg,transparent 0,transparent 3px,#a3f48319 4px);
+}
+.portal-topline,.portal-statusline{
+  position:absolute;
+  z-index:5;
+  left:clamp(21px,3vw,42px);
+  right:clamp(21px,3vw,42px);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:30px;
+  color:#c4e7b3;
+  font:500 10px var(--mono);
+  letter-spacing:.11em;
+}
+.portal-topline{top:28px}
+.portal-statusline{bottom:31px}
+.portal-topline i{
+  display:inline-block;
+  vertical-align:middle;
+  margin-right:12px;
+  width:7px;height:7px;border-radius:50%;
+  background:#ceff81;
+  box-shadow:0 0 17px #bafa74;
+  animation:breathe 2s ease-in-out infinite;
+}
+.portal-topline>span:last-child{color:#b8e7a1a3}
+.portal-statusline>span:last-child{color:#a4c99d9e}
+.portal-interaction-hint b{color:#d0ff7c;margin:0 7px;font-size:14px;font-weight:400}
+.portal-frame{
+  position:absolute;
+  z-index:3;
+  pointer-events:none;
+  width:27px;height:27px;
+  border-color:#b9f997a8;
+  border-style:solid;
+}
+.portal-frame-tl{top:57px;left:32px;border-width:1px 0 0 1px}
+.portal-frame-tr{top:57px;right:32px;border-width:1px 1px 0 0}
+.portal-frame-bl{bottom:62px;left:32px;border-width:0 0 1px 1px}
+.portal-frame-br{bottom:62px;right:32px;border-width:0 1px 1px 0}
+.portal-overlay{
+  position:absolute;
+  pointer-events:none;
+  inset:auto auto 12% 7%;
+  z-index:3;
+}
+.portal-overlay>span{
+  display:block;
+  font-size:clamp(66px,10vw,162px);
+  font-weight:800;
+  letter-spacing:-.1em;
+  line-height:.82;
+  color:#f1ffe9;
+  opacity:.115;
+  user-select:none;
+  mix-blend-mode:screen;
+  transition:opacity .4s,transform .6s;
+}
+.portal-stage:hover .portal-overlay>span{opacity:.06;transform:translateY(6px)}
+.portal-stage[data-world="nebula"] .portal-overlay>span{opacity:.095}
+.portal-stage[data-world="grid"] .portal-overlay>span{opacity:.12}
+.poster-point{color:#dcff9d}
+.portal-console{
+  border-top:1px solid #5c806060;
+  background:#121a14;
+  padding:26px clamp(22px,3vw,42px) 31px;
+}
+.portal-console-title{
+  display:flex;gap:13px;align-items:center;
+  padding-bottom:22px;
+  color:#dfffc4;
+  font:500 11px var(--mono);
+  letter-spacing:.16em;
+}
+.portal-console-title small{
+  margin-left:auto;
+  font:500 10px var(--mono);
+  letter-spacing:.03em;
+  color:#7d9980;
+}
+.console-dot{width:8px;height:8px;border-radius:50%;background:#d0ff7c;box-shadow:0 0 14px #beff82}
+.portal-modes{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:9px;
+}
+.portal-mode{
+  min-width:0;
+  position:relative;
+  min-height:93px;
+  padding:20px 21px;
+  border:1px solid #405744;
+  background:#172118;
+  color:#d4e5ce;
+  display:grid;
+  align-items:start;
+  text-align:left;
+  grid-template-columns:auto minmax(0,1fr) auto;
+  grid-template-rows:auto auto;
+  gap:10px 15px;
+  transition:background .2s,color .2s,border-color .2s,transform .2s;
+}
+.portal-mode:hover{border-color:#aeef84;transform:translateY(-2px)}
+.portal-mode.is-active{
+  border-color:#d0ff7c;
+  background:#d0ff7c;
+  color:#122013;
+}
+.mode-id{font:500 11px var(--mono);opacity:.6}
+.mode-name{font-size:clamp(15px,1.6vw,23px);font-weight:800;letter-spacing:-.045em;line-height:1}
+.mode-description{
+  font:500 9px var(--mono);
+  grid-column:2/3;
+  color:#8daa8d;
+  letter-spacing:.055em;
+  align-self:end;
+}
+.portal-mode.is-active .mode-description{color:#506943}
+.mode-arrow{grid-column:3;grid-row:1 / span 2;align-self:start;font-size:24px;line-height:1}
+.portal-deck{
+  display:grid;
+  grid-template-columns:minmax(170px,1fr) minmax(150px,1.25fr) auto auto;
+  gap:22px;
+  align-items:center;
+  margin-top:22px;
+  padding-top:24px;
+  border-top:1px solid #53745557;
+}
+.portal-energy-label{
+  font:500 10px var(--mono);
+  letter-spacing:.10em;
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  color:#abc4a9;
+}
+.portal-energy-label output{color:#d0ff7c}
+#portal-energy{
+  width:100%;
+  height:6px;
+  accent-color:#d0ff7c;
+  cursor:pointer;
+}
+.portal-trigger,.portal-capture{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:35px;
+  padding:19px 22px;
+  min-height:53px;
+  border:1px solid #d0ff7c;
+  font:600 11px var(--mono);
+  letter-spacing:.04em;
+  transition:transform .2s,background .2s,color .2s;
+  white-space:nowrap;
+}
+.portal-trigger{
+  color:#0d150e;
+  background:#d0ff7c;
+}
+.portal-trigger:hover{background:#eaffbc;transform:translateY(-2px)}
+.portal-trigger span{font-size:20px;font-weight:400}
+.portal-capture{color:#d0ff7c;background:none}
+.portal-capture:hover{background:#d0ff7c;color:#0d150e;transform:translateY(-2px)}
+.portal-capture span{font-size:20px}
+.portal-endnote{
+  display:flex;
+  justify-content:space-between;
+  gap:25px;
+  margin-top:22px;
+  font:500 10px var(--mono);
+  color:#80a185;
+  letter-spacing:.09em;
+}
+.portal-endnote span:last-child{text-align:right}
+@media(max-width:1100px){
+  .portal-intro{grid-template-columns:1fr .6fr}
+  .portal-intro h2{font-size:clamp(76px,10vw,125px)}
+  .portal-deck{grid-template-columns:1fr 1fr}
+  .portal-trigger,.portal-capture{min-height:54px}
+}
+@media(max-width:760px){
+  .lab-section{padding:74px 22px 95px}
+  .portal-intro{display:block;padding:75px 0 38px}
+  .portal-intro h2{font-size:clamp(73px,13vw,111px)}
+  .portal-intro>p{margin:34px 0 0;max-width:560px;font-size:16px}
+  .portal-stage{height:clamp(440px,85vw,620px)}
+  .portal-overlay{left:6%;bottom:18%}
+  .portal-overlay>span{font-size:clamp(60px,11vw,92px)}
+  .portal-console{padding:22px 18px 25px}
+  .portal-modes{grid-template-columns:1fr 1fr 1fr;gap:6px}
+  .portal-mode{padding:14px 12px;min-height:105px;grid-template-columns:1fr auto;gap:8px}
+  .mode-id{grid-column:1;grid-row:1}
+  .mode-name{grid-column:1/-1;grid-row:2;font-size:15px}
+  .mode-description{display:none}
+  .mode-arrow{grid-column:2;grid-row:1;font-size:20px}
+  .portal-deck{gap:18px;grid-template-columns:1fr}
+  .portal-energy-label{margin-bottom:-10px}
+  .portal-trigger,.portal-capture{justify-content:space-between}
+  .portal-capture{min-height:48px}
+  .portal-topline,.portal-statusline{font-size:9px;left:20px;right:20px}
+  .portal-coordinates{font-size:9px}
+  .portal-topline>span:last-child{display:none}
+  .portal-interaction-hint{display:none}
+  .portal-frame-tl,.portal-frame-bl{left:17px}
+  .portal-frame-tr,.portal-frame-br{right:17px}
+  .portal-endnote{font-size:9px;flex-direction:column;gap:10px}
+  .portal-endnote span:last-child{text-align:left}
+}
+@media(max-width:420px){
+  .portal-intro h2{font-size:clamp(63px,15vw,77px)}
+  .portal-stage{height:430px}
+  .portal-overlay>span{font-size:62px}
+  .portal-mode{padding:14px 9px;min-height:95px}
+  .mode-name{font-size:12px;letter-spacing:-.055em}
+  .portal-console-title{font-size:10px}
+  .portal-console-title small{font-size:8px}
+  .portal-statusline{bottom:22px}
+  .portal-topline{top:20px}
+  .portal-frame-tl,.portal-frame-tr{top:45px}
+  .portal-frame-bl,.portal-frame-br{bottom:49px}
+}
+@media(prefers-reduced-motion:reduce){
+  .portal-topline i{animation:none!important}
+}
+html.motion-off .portal-topline i{animation:none!important}

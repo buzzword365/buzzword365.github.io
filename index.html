@@ -15,6 +15,7 @@
   <link rel="preload" href="./assets/weather-preview.svg" as="image" type="image/svg+xml">
   <link rel="stylesheet" href="./style.css">
   <script>document.documentElement.classList.add("js")</script>
+  <script defer src="./portal.js"></script>
   <script defer src="./script.js"></script>
 </head>
 <body>
@@ -155,21 +156,45 @@
     </section>
 
     <section class="lab-section" id="lab" aria-labelledby="lab-title">
-      <div class="section-rail reveal"><span>03 / INTERACTIVE LAB</span><span>THERE'S ALWAYS TIME TO PLAY</span></div>
-      <div class="lab-copy reveal"><p class="eyebrow"><span class="flicker-dot"></span> A LITTLE EXPERIMENT</p><h2 id="lab-title">Go on.<br><em>Disturb the pixels.</em></h2><p>This one's alive. Move your cursor through the field, or tap it on your phone. See what happens.</p></div>
-      <div class="lab-display" id="lab-display">
-        <canvas id="signal-canvas" aria-label="Interactive particle field that reacts to pointer or touch" role="img"></canvas>
-        <span class="lab-marker marker-tl">SIGNAL_001</span><span class="lab-marker marker-tr">LIVE SYSTEM</span>
-        <span class="lab-cross lab-cross-a" aria-hidden="true">+</span><span class="lab-cross lab-cross-b" aria-hidden="true">+</span>
-        <span class="lab-center-label" id="lab-status" aria-live="polite">MOVE TO EXPLORE</span>
-        <span class="lab-marker marker-bl">INTERACTIVE CANVAS / NO TRACKING</span><span class="lab-marker marker-br"><span id="signal-count">000</span> SIGNALS</span>
+      <div class="section-rail reveal"><span>03 / EXPERIMENTAL WORLD</span><span>NOT A VIDEO. NOT A MOCKUP. ALL CODE.</span></div>
+      <div class="portal-intro reveal">
+        <div>
+          <p class="eyebrow"><span class="flicker-dot"></span> LIVE / AN INTERACTIVE EXPERIMENT</p>
+          <h2 id="lab-title">BEND<br><em>REALITY.</em></h2>
+        </div>
+        <p>Three strange little universes, built entirely with code. Move to shift their gravity. Tap to set off a shockwave. Make your own kind of beautiful chaos.</p>
       </div>
-      <div class="lab-controls">
-        <div class="lab-control-label">PLAY WITH THE PARAMETERS <span>↘</span></div>
-        <label class="intensity"><span>INTENSITY</span><input id="intensity" type="range" min="20" max="100" value="65" step="5"><output id="intensity-output" for="intensity">65%</output></label>
-        <button id="signal-color" class="outline-button" type="button" aria-pressed="false">SWITCH FREQUENCY <span aria-hidden="true">↗</span></button>
-        <button id="signal-reset" class="outline-button" type="button">RESET SIGNAL <span aria-hidden="true">↺</span></button>
+      <div class="portal-experience" id="portal-experience">
+        <div class="portal-stage" id="portal-stage">
+          <canvas id="portal-canvas" role="img" tabindex="0" aria-label="Interactive neon-green digital wormhole. Move your pointer to bend its gravity. Click, press Enter or press Space to send a shockwave."></canvas>
+          <div class="portal-shade" aria-hidden="true"></div>
+          <div class="portal-frame portal-frame-tl" aria-hidden="true"></div>
+          <div class="portal-frame portal-frame-tr" aria-hidden="true"></div>
+          <div class="portal-frame portal-frame-bl" aria-hidden="true"></div>
+          <div class="portal-frame portal-frame-br" aria-hidden="true"></div>
+          <div class="portal-topline"><span><i></i> LIVE GENERATIVE EXPERIENCE</span><span id="portal-coordinates">DIMENSION_001 // WORMHOLE</span></div>
+          <div class="portal-overlay" aria-hidden="true"><span id="portal-poster">ENTER<br>THE VOID<span class="poster-point">.</span></span></div>
+          <div class="portal-statusline">
+            <span id="portal-status" role="status" aria-live="polite">PORTAL STABLE / READY</span>
+            <span class="portal-interaction-hint">MOVE TO BEND <b>✳</b> CLICK TO BURST</span>
+          </div>
+        </div>
+        <div class="portal-console">
+          <div class="portal-console-title"><span class="console-dot" aria-hidden="true"></span><span>CHOOSE YOUR REALITY</span><small>03 POSSIBLE DIMENSIONS</small></div>
+          <div class="portal-modes" role="group" aria-label="Choose portal dimension">
+            <button type="button" class="portal-mode is-active" data-world="vortex" aria-pressed="true"><span class="mode-id">01 /</span><span class="mode-name">WORMHOLE</span><span class="mode-description">INTO THE UNKNOWN</span><span class="mode-arrow" aria-hidden="true">↗</span></button>
+            <button type="button" class="portal-mode" data-world="nebula" aria-pressed="false"><span class="mode-id">02 /</span><span class="mode-name">SUPERNOVA</span><span class="mode-description">BEAUTIFUL CHAOS</span><span class="mode-arrow" aria-hidden="true">↗</span></button>
+            <button type="button" class="portal-mode" data-world="grid" aria-pressed="false"><span class="mode-id">03 /</span><span class="mode-name">HYPERGRID</span><span class="mode-description">BEYOND THE MATRIX</span><span class="mode-arrow" aria-hidden="true">↗</span></button>
+          </div>
+          <div class="portal-deck">
+            <label for="portal-energy" class="portal-energy-label">REACTOR POWER <output id="portal-energy-output" for="portal-energy">72%</output></label>
+            <input type="range" id="portal-energy" min="20" max="100" step="1" value="72" aria-label="Reactor power">
+            <button type="button" class="portal-trigger" id="portal-trigger">UNLEASH ENERGY <span aria-hidden="true">↗</span></button>
+            <button type="button" class="portal-capture" id="portal-capture" aria-label="Save a picture of the current dimension">SAVE ART <span aria-hidden="true">↓</span></button>
+          </div>
+        </div>
       </div>
+      <div class="portal-endnote"><span>MADE OF MATH, LIGHT AND A LITTLE CHAOS.</span><span>NO EXTERNAL LIBRARIES. NO TRACKING. 100% YOURS.</span></div>
     </section>
 
     <section class="statement-section" aria-label="Design philosophy">

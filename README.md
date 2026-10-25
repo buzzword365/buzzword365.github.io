@@ -10,7 +10,8 @@ An original interactive portfolio for Ziz, deployed via GitHub Pages.
 - Full-screen animated navigation and scroll progress indicator.
 - Kinetic typography, editorial storytelling, marquee and reveal transitions.
 - Four interactive project cards with category filters and accessible detail dialogs.
-- Original Signal Lab canvas: responsive particle network, cursor and touch interaction, tap-to-pulse, intensity slider, colour switch and reset.
+- **Reality Engine:** a custom neon-green, generative experience with three interactive worlds — Wormhole, Supernova and Hypergrid — designed with the Canvas 2D API.
+- Move your pointer to bend a scene's gravity; click, tap, or use Space/Enter to release an energy shockwave. Tune reactor power or **save the frame as a PNG** without uploading anything.
 - Magnetic buttons, microinteractions and custom desktop cursor treatment.
 - Touch-compatible responsive layout, light/dark themes and motion controls.
 - Respects the visitor's reduced-motion preference; semantic navigation and keyboard interactions.
@@ -29,7 +30,8 @@ Then open http://localhost:8000.
 |---|---|
 | index.html | Semantic content, navigation, featured projects and dialog |
 | style.css | Responsive styling, animations and visual components |
-| script.js | Interaction logic, preference state and canvas animation |
+| script.js | Navigation, project filtering, modals and motion preferences |
+| portal.js | Three procedural dimensions, pointer gravity and energy bursts |
 | assets/*.svg | Custom project illustrations |
 | assets/og-cover.jpg | Social sharing artwork |
 | favicon.svg | Brand mark |
@@ -51,4 +53,4 @@ The site is an original design, inspired by the feel of expressive, motion-led d
 
 ## Testing
 
-Run node --check script.js. The GitHub workflow checks JavaScript syntax, local image references, project links and privacy markers. The project has also been exercised using headless Chrome with mobile and desktop interaction tests.
+Run node --check script.js and node --check portal.js. The GitHub workflow checks JavaScript syntax, local image references, project links and privacy markers. The project has also been exercised using headless Chrome with mobile and desktop interaction tests.
