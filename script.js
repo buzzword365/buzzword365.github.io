@@ -26,8 +26,7 @@
     motionToggle.setAttribute('aria-pressed',String(motionEnabled));
     if(!motionEnabled){
       $$('.reveal').forEach(el=>el.classList.add('is-visible'));
-      $('#orb-container').style.transform='';
-      $$('.pupil').forEach(p=>{p.style.removeProperty('--pupil-x');p.style.removeProperty('--pupil-y')});
+      resetGaze();
     }
     updateAnimation();
     window.dispatchEvent(new Event('ziz:motion-changed'));
@@ -106,7 +105,7 @@
     if(!menu.classList.contains('is-open'))return;
     if(ev.key==='Escape'){setMenu(false);return}
     if(ev.key==='Tab'){
-      const links=[...menu.querySelectorAll('a:not([hidden])'),menuToggle];
+      const links=[menuToggle,...menu.querySelectorAll('a:not([hidden])')];
       const first=links[0],last=links[links.length-1];
       if(ev.shiftKey&&document.activeElement===first){ev.preventDefault();last.focus()}
       else if(!ev.shiftKey&&document.activeElement===last){ev.preventDefault();first.focus()}
@@ -171,19 +170,51 @@
     $('#project-grid').setAttribute('aria-label',String(count)+' projects shown');
   }));
 
-  const orbStage=$('#orb-stage'),orb=$('#orb-container'),pupils=$$('.pupil');
-  document.addEventListener('pointermove',ev=>{
-    if(!motionEnabled||ev.pointerType==='touch')return;
-    const r=orbStage.getBoundingClientRect();
-    const x=Math.max(-1,Math.min(1,(ev.clientX-r.left-r.width/2)/(r.width/2)));
-    const y=Math.max(-1,Math.min(1,(ev.clientY-r.top-r.height/2)/(r.height/2)));
-    orb.style.transform='rotateY('+(x*9)+'deg) rotateX('+(-y*8)+'deg)';
-    pupils.forEach((p,i)=>{
-      const reach=i===0?14:12;
-      p.style.setProperty('--pupil-x',(x*reach)+'px');
-      p.style.setProperty('--pupil-y',(y*reach)+'px');
+  const orbStage=$('#orb-stage'),orb=$('#orb-container'),orbFace=$('.orb-face',orbStage);
+  const eyes=$$('.eye',orbFace),pupils=$$('.pupil',orbFace);
+  const clamp=(num,min,max)=>Math.max(min,Math.min(max,num));
+  const resetGaze=()=>{
+    orb.style.transform='';
+    orbFace.style.removeProperty('--eye-x');
+    orbFace.style.removeProperty('--eye-y');
+    pupils.forEach(p=>{
+      p.style.removeProperty('--pupil-x');
+      p.style.removeProperty('--pupil-y');
     });
+  };
+  const gazeAt=(clientX,clientY)=>{
+    if(!motionEnabled)return;
+    const r=orbStage.getBoundingClientRect();
+    const x=clamp((clientX-r.left-r.width/2)/(r.width/2),-1,1);
+    const y=clamp((clientY-r.top-r.height/2)/(r.height/2),-1,1);
+    // Orbit + entire white eyes shift together; the pupils add finer gaze movement.
+    orb.style.transform='rotateY('+(x*7)+'deg) rotateX('+(-y*6)+'deg)';
+    const diameter=orbFace.clientWidth;
+    const travelX=diameter*.053,travelY=diameter*.042;
+    orbFace.style.setProperty('--eye-x',(x*travelX).toFixed(2)+'px');
+    orbFace.style.setProperty('--eye-y',(y*travelY).toFixed(2)+'px');
+    eyes.forEach((eye,i)=>{
+      const pupil=pupils[i];
+      const reach=Math.min(eye.clientWidth*.13,18);
+      pupil.style.setProperty('--pupil-x',(x*reach).toFixed(2)+'px');
+      pupil.style.setProperty('--pupil-y',(y*reach*.68).toFixed(2)+'px');
+    });
+  };
+  document.addEventListener('pointermove',ev=>{
+    if(ev.pointerType==='touch')return;
+    gazeAt(ev.clientX,ev.clientY);
   },{passive:true});
+  // On touch screens the face follows a finger while it moves across the hero.
+  // Let the eyes respond to a finger anywhere in the hero, including
+  // the portion covered by the large headline on small screens.
+  const hero=$('.hero');
+  hero.addEventListener('pointerdown',ev=>{
+    if(ev.pointerType==='touch')gazeAt(ev.clientX,ev.clientY);
+  },{passive:true});
+  hero.addEventListener('pointermove',ev=>{
+    if(ev.pointerType==='touch')gazeAt(ev.clientX,ev.clientY);
+  },{passive:true});
+  window.addEventListener('blur',resetGaze);
 
   if(!coarse.matches){
     const cursor=$('#cursor-orbit');

@@ -41,12 +41,17 @@ jobs:
               assert any(project in link for link in p.links),project
           for marker in ('sculpture-canvas','sculpture-spin','sculpture-save','sculpture-reset','site-menu','project-dialog','theme-toggle','motion-toggle'):
               assert marker in p.ids, marker
-          for name in ('index.html','style.css','script.js','sculpture.source.js','README.md','privacy.html'):
+          for name in ('index.html','style.css','script.js','boot.js','sculpture.source.js','README.md','privacy.html'):
               content=Path(name).read_text().lower()
-              for sensitive in ('/users/','caroline springs','burnside heights'):
+              for sensitive in ('/users/','/home/','@gmail.com','gpslatitude','home_coordinates'):
                   assert sensitive not in content, (name,sensitive)
           assert Path('assets/THREE-LICENSE.txt').exists()
           assert 'privacy.html' in doc
+          assert 'Content-Security-Policy' in doc
+          assert '<script>' not in doc
+          assert 'boot.js' in doc and Path('boot.js').exists()
+          assert 'fonts.googleapis.com' not in Path('style.css').read_text()
+          assert 'fonts.gstatic.com' not in Path('style.css').read_text()
           assert '®' not in doc and '©' not in doc
           css=Path('style.css').read_text()
           assert css.count('{')==css.count('}')

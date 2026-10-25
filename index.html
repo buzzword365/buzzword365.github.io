@@ -4,6 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#101310">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; font-src 'self'; connect-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; worker-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="description" content="The creative playground of Ziz. Playful macOS apps, experimental interfaces, and tools built with care.">
   <meta property="og:type" content="website">
   <meta property="og:title" content="ZIZ — Making the digital feel different.">
@@ -14,7 +16,7 @@
   <link rel="icon" href="./favicon.svg" type="image/svg+xml">
   <link rel="preload" href="./assets/weather-preview.svg" as="image" type="image/svg+xml">
   <link rel="stylesheet" href="./style.css">
-  <script>document.documentElement.classList.add("js")</script>
+  <script src="./boot.js"></script>
   <script defer src="./assets/sculpture.bundle.js"></script>
   <script defer src="./script.js"></script>
 </head>
@@ -64,7 +66,7 @@
           <div class="hero-links"><a href="#work" class="round-cta magnet"><span>EXPLORE THE WORK</span><b aria-hidden="true">↘</b></a><span class="hero-links-note">01—04 / SELECTED PROJECTS</span></div>
         </div>
 
-        <div class="orb-stage" id="orb-stage" aria-label="An interactive pair of cartoon eyes following your pointer">
+        <div class="orb-stage" id="orb-stage" role="img" aria-label="A playful black face with two large white eyes that follow your cursor">
           <div class="orb-noise" aria-hidden="true"></div>
           <div class="orbit orbit-one" aria-hidden="true"></div><div class="orbit orbit-two" aria-hidden="true"></div>
           <div class="orbit orbit-three" aria-hidden="true"></div>
@@ -140,7 +142,7 @@
             <span class="project-top-chip">03 / UTILITY</span><span class="project-arrow" aria-hidden="true">↗</span>
             <span class="project-shine" aria-hidden="true"></span>
           </div>
-          <div class="project-info"><div><h3>Spoof by Ziz</h3><p>A different way to take your device for a walk.</p></div><span class="project-number">003</span></div>
+          <div class="project-info"><div><h3>Spoof by Ziz</h3><p>A local iPhone GPS simulation tool for developer testing.</p></div><span class="project-number">003</span></div>
           <div class="project-tags"><span>PYTHON</span><span>SWIFT</span><span>LEAFLET</span></div>
         </a>
         <a class="project-card" data-project="notes" data-category="study" href="https://github.com/buzzword365/class-notes" aria-label="Explore Class Notes project details">

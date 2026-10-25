@@ -6,7 +6,7 @@ An original interactive portfolio for Ziz, deployed via GitHub Pages.
 
 ## The experience
 
-- Sculptural, cursor-following Weather Eyes character on the home screen.
+- Sculptural Weather Eyes character on the home screen. The **entire pair of white eyes**, the pupils, and the face's slight tilt now follow pointer movement in sync; touch interactions work on the hero as well.
 - Full-screen animated navigation and scroll progress indicator.
 - Kinetic typography, editorial storytelling, marquee and reveal transitions.
 - Four interactive project cards with category filters and accessible detail dialogs.
@@ -47,7 +47,7 @@ The website disables ordinary text selection as a presentation choice. This is N
 
 No registered-trade-mark claim is made for the nickname “Ziz”. Original material and third-party components retain their applicable rights. See [Privacy & Site Notes](privacy.html) for what the browser saves and third-party requests.
 
-Typography may load from Google Fonts. If it is blocked, system fonts will be used instead.
+Typography uses system font stacks, with no external font requests. A restrictive Content Security Policy helps prevent accidental third-party tracking or script loading.
 
 ## Projects
 
