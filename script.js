@@ -30,6 +30,7 @@
       $$('.pupil').forEach(p=>{p.style.removeProperty('--pupil-x');p.style.removeProperty('--pupil-y')});
     }
     updateAnimation();
+    window.dispatchEvent(new Event('ziz:motion-changed'));
   };
   motionToggle.addEventListener('click',()=>{motionEnabled=!motionEnabled;set('ziz-motion',motionEnabled?'on':'off');syncMotion()});
   reduced.addEventListener?.('change',ev=>{if(ev.matches){motionEnabled=false;syncMotion()}});
@@ -58,6 +59,31 @@
   },{passive:true});
   updateScroll();
 
+  // Build a continuous marquee from two exact, equal-length strips.
+  // Each strip is wider than the viewport, so the animation never reaches an empty edge.
+  const ticker=$('#marquee-inner');
+  const tickerParts=ticker?[...ticker.querySelectorAll('.marquee-copy')]:[];
+  const initialTicker=tickerParts[0]?.innerHTML || '';
+  let lastTickerWidth=0;
+  function sizeTicker(){
+    if(tickerParts.length!==2)return;
+    const view=window.innerWidth;
+    if(view===lastTickerWidth)return;
+    lastTickerWidth=view;
+    tickerParts[0].innerHTML=initialTicker;
+    let count=0;
+    while(tickerParts[0].getBoundingClientRect().width < view+120 && count < 12){
+      tickerParts[0].insertAdjacentHTML('beforeend',initialTicker);
+      count++;
+    }
+    tickerParts[1].innerHTML=tickerParts[0].innerHTML;
+    const stripWidth=tickerParts[0].getBoundingClientRect().width;
+    ticker.style.setProperty('--marquee-duration',(stripWidth/98).toFixed(2)+'s');
+  }
+  sizeTicker();
+  document.fonts?.ready?.then(()=>{lastTickerWidth=0;sizeTicker()});
+  window.addEventListener('resize',sizeTicker,{passive:true});
+
   const menu=$('#site-menu'),menuToggle=$('#menu-toggle');
   let menuFocus=null;
   const setMenu=open=>{
@@ -77,7 +103,14 @@
     if(ev.target instanceof Element && ev.target.closest('.menu-bottom a'))setMenu(false);
   });
   document.addEventListener('keydown',ev=>{
-    if(ev.key==='Escape'&&menu.classList.contains('is-open'))setMenu(false);
+    if(!menu.classList.contains('is-open'))return;
+    if(ev.key==='Escape'){setMenu(false);return}
+    if(ev.key==='Tab'){
+      const links=[...menu.querySelectorAll('a:not([hidden])'),menuToggle];
+      const first=links[0],last=links[links.length-1];
+      if(ev.shiftKey&&document.activeElement===first){ev.preventDefault();last.focus()}
+      else if(!ev.shiftKey&&document.activeElement===last){ev.preventDefault();first.focus()}
+    }
   });
 
   if('IntersectionObserver' in window && motionEnabled){
@@ -184,9 +217,6 @@
     });
   }
 
-  // The new multi-world portal owns its own canvas and controls.
-  // Keep the site's global motion preference wired to the experiment.
-  const portal = window.ZizPortal?.mount({motion:()=>motionEnabled});
-  updateAnimation=()=>portal?.update();
+  // Local WebGL sculpture handles its own controls and listens for motion changes.
   syncMotion();
 })();

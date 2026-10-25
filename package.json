@@ -1,0 +1,14 @@
+{
+  "name": "ziz-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static creative portfolio with a self-hosted rotatable 3D sculpture",
+  "scripts": {
+    "build": "esbuild sculpture.source.js --bundle --format=iife --platform=browser --target=es2020 --minify --outfile=assets/sculpture.bundle.js",
+    "check": "node --check script.js && node --check sculpture.source.js && node --check assets/sculpture.bundle.js"
+  },
+  "devDependencies": {
+    "three": "0.180.0",
+    "esbuild": "0.25.12"
+  }
+}

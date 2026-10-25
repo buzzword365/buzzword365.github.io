@@ -11,10 +11,12 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
-      - name: Check JavaScript syntax
+      - name: Install and verify 3D engine
         run: |
-          node --check script.js
-          node --check portal.js
+          npm ci --ignore-scripts --no-audit --no-fund
+          npm run build
+          npm run check
+          git diff --exit-code -- assets/sculpture.bundle.js
       - name: Validate navigation, assets and privacy
         run: |
           python3 - <<'PY'
@@ -37,12 +39,15 @@ jobs:
               assert Path(asset).exists(), asset
           for project in ('weather-eyes','sonora-music','spoof-by-ziz','class-notes'):
               assert any(project in link for link in p.links),project
-          for marker in ('portal-canvas','portal-energy','portal-trigger','portal-capture','site-menu','project-dialog','theme-toggle','motion-toggle'):
+          for marker in ('sculpture-canvas','sculpture-spin','sculpture-save','sculpture-reset','site-menu','project-dialog','theme-toggle','motion-toggle'):
               assert marker in p.ids, marker
-          for name in ('index.html','style.css','script.js','portal.js','README.md'):
+          for name in ('index.html','style.css','script.js','sculpture.source.js','README.md','privacy.html'):
               content=Path(name).read_text().lower()
               for sensitive in ('/users/','caroline springs','burnside heights'):
                   assert sensitive not in content, (name,sensitive)
+          assert Path('assets/THREE-LICENSE.txt').exists()
+          assert 'privacy.html' in doc
+          assert '®' not in doc and '©' not in doc
           css=Path('style.css').read_text()
           assert css.count('{')==css.count('}')
           print('HTML, CSS, links, images and privacy checks passed.')

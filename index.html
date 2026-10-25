@@ -6,16 +6,16 @@
   <meta name="theme-color" content="#101310">
   <meta name="description" content="The creative playground of Ziz. Playful macOS apps, experimental interfaces, and tools built with care.">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="ZIZ® — Making the digital feel different.">
+  <meta property="og:title" content="ZIZ — Making the digital feel different.">
   <meta property="og:description" content="Interactive digital experiments, delightfully useful software. Meet the projects by Ziz.">
   <meta property="og:image" content="https://buzzword365.github.io/assets/og-cover.jpg">
   <meta property="og:url" content="https://buzzword365.github.io/">
-  <title>ZIZ® — The internet should feel something.</title>
+  <title>ZIZ — The internet should feel something.</title>
   <link rel="icon" href="./favicon.svg" type="image/svg+xml">
   <link rel="preload" href="./assets/weather-preview.svg" as="image" type="image/svg+xml">
   <link rel="stylesheet" href="./style.css">
   <script>document.documentElement.classList.add("js")</script>
-  <script defer src="./portal.js"></script>
+  <script defer src="./assets/sculpture.bundle.js"></script>
   <script defer src="./script.js"></script>
 </head>
 <body>
@@ -31,7 +31,7 @@
   </div>
 
   <header class="header" id="header">
-    <a class="wordmark" href="#top" aria-label="Ziz, home">ziz<span class="wordmark-star">✳</span><sup>®</sup></a>
+    <a class="wordmark" href="#top" aria-label="Ziz, home">ziz<span class="wordmark-star">✳</span></a>
     <div class="header-center"><span class="online-dot"></span> INDEPENDENT CREATIVE DEVELOPER <span class="header-serial">/ 026</span></div>
     <div class="header-actions">
       <a class="header-github magnet" href="https://github.com/buzzword365" target="_blank" rel="noopener noreferrer">GITHUB <span aria-hidden="true">↗</span></a>
@@ -40,7 +40,7 @@
   </header>
 
   <nav class="full-menu" id="site-menu" aria-label="Site menu" aria-hidden="true" inert>
-    <div class="menu-top"><span>EXPLORE THE PLAYGROUND</span><span>© 2026 ZIZ</span></div>
+    <div class="menu-top"><span>EXPLORE THE PLAYGROUND</span><span>ZIZ / 2026</span></div>
     <div class="menu-links">
       <a href="#top" data-menu-link><small>01 /</small><span>Home</span><span aria-hidden="true">↗</span></a>
       <a href="#work" data-menu-link><small>02 /</small><span>Projects</span><span aria-hidden="true">↗</span></a>
@@ -84,10 +84,12 @@
       <div class="hero-bottomline"><span>SCROLL TO EXPLORE &nbsp;<span class="down-bounce">↓</span></span><span>DESIGNED TO BE USED. BUILT TO BE FELT.</span><span>00—05</span></div>
     </section>
 
-    <div class="marquee" aria-label="Curiosity, not convention"><div class="marquee-inner" aria-hidden="true">
-      <span>CURIOUS BY DEFAULT <i>✳</i> BORING IS OPTIONAL <i>✳</i> MADE TO MOVE <i>✳</i> </span>
-      <span>CURIOUS BY DEFAULT <i>✳</i> BORING IS OPTIONAL <i>✳</i> MADE TO MOVE <i>✳</i> </span>
-    </div></div>
+    <div class="marquee" aria-label="Curious by default. Boring is optional. Made to move.">
+      <div class="marquee-inner" id="marquee-inner" aria-hidden="true">
+        <span class="marquee-copy">CURIOUS BY DEFAULT <i>✳</i> BORING IS OPTIONAL <i>✳</i> MADE TO MOVE <i>✳</i>&nbsp;</span>
+        <span class="marquee-copy">CURIOUS BY DEFAULT <i>✳</i> BORING IS OPTIONAL <i>✳</i> MADE TO MOVE <i>✳</i>&nbsp;</span>
+      </div>
+    </div>
 
     <section class="intro-section section-pad" id="about" aria-labelledby="about-title">
       <div class="section-rail reveal"><span>01 / ABOUT THE MIND</span><span>NOT A STUDIO. JUST A LOT OF IDEAS.</span></div>
@@ -95,7 +97,7 @@
         <div class="intro-side reveal"><span class="asterisk-large">✳</span><div class="side-note">THINK WEIRDER.<br>BUILD BETTER.</div></div>
         <div class="intro-main reveal">
           <p class="eyebrow">A LITTLE INTRODUCTION</p>
-          <h2 id="about-title">I make the <span>ordinary</span><br>feel <em>extraordinary.</em></h2>
+          <h2 id="about-title">I make the <span class="ordinary-cross">ordinary</span><br>feel <em>extraordinary.</em></h2>
           <div class="intro-desc"><p>Some people collect things. I collect ideas, then turn them into things you can click.</p><p>From a wallpaper that watches you back to tools that solve problems, I think good software should have a point of view — and maybe a little mischief.</p></div>
           <div class="tech-pills" aria-label="Technologies"><span>SWIFT</span><span>PYTHON</span><span>JAVASCRIPT</span><span>REACT</span><span>INTERACTIVE UI</span></div>
         </div>
@@ -155,46 +157,40 @@
       <div class="work-bottom reveal"><span>↑ CLICK A PROJECT FOR A CLOSER LOOK</span><a href="https://github.com/buzzword365?tab=repositories" target="_blank" rel="noopener noreferrer" class="underline-link">SEE EVERYTHING ON GITHUB ↗</a></div>
     </section>
 
-    <section class="lab-section" id="lab" aria-labelledby="lab-title">
-      <div class="section-rail reveal"><span>03 / EXPERIMENTAL WORLD</span><span>NOT A VIDEO. NOT A MOCKUP. ALL CODE.</span></div>
-      <div class="portal-intro reveal">
+    <section class="sculpture-section" id="lab" aria-labelledby="sculpture-title">
+      <div class="section-rail reveal"><span>03 / THE PLAYGROUND</span><span>AN OBJECT YOU CAN ACTUALLY TOUCH.</span></div>
+      <div class="sculpture-header reveal">
         <div>
-          <p class="eyebrow"><span class="flicker-dot"></span> LIVE / AN INTERACTIVE EXPERIMENT</p>
-          <h2 id="lab-title">BEND<br><em>REALITY.</em></h2>
+          <p class="eyebrow"><span class="flicker-dot"></span> INTERACTIVE / IN THREE DIMENSIONS</p>
+          <h2 id="sculpture-title">GET<br><em>HANDS-ON.</em></h2>
         </div>
-        <p>Three strange little universes, built entirely with code. Move to shift their gravity. Tap to set off a shockwave. Make your own kind of beautiful chaos.</p>
+        <p>This isn't a video. It's a reflective 3D sculpture. Grab it, spin it, and find your favourite angle.</p>
       </div>
-      <div class="portal-experience" id="portal-experience">
-        <div class="portal-stage" id="portal-stage">
-          <canvas id="portal-canvas" role="img" tabindex="0" aria-label="Interactive neon-green digital wormhole. Move your pointer to bend its gravity. Click, press Enter or press Space to send a shockwave."></canvas>
-          <div class="portal-shade" aria-hidden="true"></div>
-          <div class="portal-frame portal-frame-tl" aria-hidden="true"></div>
-          <div class="portal-frame portal-frame-tr" aria-hidden="true"></div>
-          <div class="portal-frame portal-frame-bl" aria-hidden="true"></div>
-          <div class="portal-frame portal-frame-br" aria-hidden="true"></div>
-          <div class="portal-topline"><span><i></i> LIVE GENERATIVE EXPERIENCE</span><span id="portal-coordinates">DIMENSION_001 // WORMHOLE</span></div>
-          <div class="portal-overlay" aria-hidden="true"><span id="portal-poster">ENTER<br>THE VOID<span class="poster-point">.</span></span></div>
-          <div class="portal-statusline">
-            <span id="portal-status" role="status" aria-live="polite">PORTAL STABLE / READY</span>
-            <span class="portal-interaction-hint">MOVE TO BEND <b>✳</b> CLICK TO BURST</span>
-          </div>
+      <div class="sculpture-shell" id="sculpture-shell">
+        <div class="sculpture-stage" id="sculpture-stage">
+          <canvas id="sculpture-canvas" tabindex="0" role="img" aria-label="A glossy neon-green 3D sculpture. Drag to rotate it; use arrow keys when focused."></canvas>
+          <div class="sculpture-fallback" id="sculpture-fallback" role="img" aria-label="Glossy green abstract sculptural loop" hidden>✳</div>
+          <div class="sculpture-vignette" aria-hidden="true"></div>
+          <div class="sculpture-topline"><span><i></i> ZIZ / OBJECT STUDY 001</span><span id="sculpture-state">REAL-TIME 3D</span></div>
+          <div class="sculpture-coordinate" aria-hidden="true"><span>01 — 03</span><span>↗</span></div>
+          <div class="sculpture-guide" aria-hidden="true"><span>↔</span><strong>DRAG TO ROTATE</strong><small>YOUR ANGLE, YOUR OBJECT.</small></div>
+          <div class="sculpture-bottomline"><span>REFLECTIVE OBJECT / ORIGINAL STUDY</span><span>POINTER · TOUCH · ARROW KEYS</span></div>
         </div>
-        <div class="portal-console">
-          <div class="portal-console-title"><span class="console-dot" aria-hidden="true"></span><span>CHOOSE YOUR REALITY</span><small>03 POSSIBLE DIMENSIONS</small></div>
-          <div class="portal-modes" role="group" aria-label="Choose portal dimension">
-            <button type="button" class="portal-mode is-active" data-world="vortex" aria-pressed="true"><span class="mode-id">01 /</span><span class="mode-name">WORMHOLE</span><span class="mode-description">INTO THE UNKNOWN</span><span class="mode-arrow" aria-hidden="true">↗</span></button>
-            <button type="button" class="portal-mode" data-world="nebula" aria-pressed="false"><span class="mode-id">02 /</span><span class="mode-name">SUPERNOVA</span><span class="mode-description">BEAUTIFUL CHAOS</span><span class="mode-arrow" aria-hidden="true">↗</span></button>
-            <button type="button" class="portal-mode" data-world="grid" aria-pressed="false"><span class="mode-id">03 /</span><span class="mode-name">HYPERGRID</span><span class="mode-description">BEYOND THE MATRIX</span><span class="mode-arrow" aria-hidden="true">↗</span></button>
+        <div class="sculpture-console">
+          <div class="sculpture-console-copy"><span class="console-kicker">01 / MATERIAL STUDIO</span><strong>Change its finish.</strong><small>THREE WAYS TO SEE THE SAME SHAPE.</small></div>
+          <div class="sculpture-finishes" role="group" aria-label="Choose sculpture material">
+            <button type="button" data-finish="lime" class="finish-button is-active" aria-pressed="true"><i class="swatch swatch-lime"></i> LIQUID LIME</button>
+            <button type="button" data-finish="chrome" class="finish-button" aria-pressed="false"><i class="swatch swatch-chrome"></i> MIRROR CHROME</button>
+            <button type="button" data-finish="obsidian" class="finish-button" aria-pressed="false"><i class="swatch swatch-obsidian"></i> OBSIDIAN</button>
           </div>
-          <div class="portal-deck">
-            <label for="portal-energy" class="portal-energy-label">REACTOR POWER <output id="portal-energy-output" for="portal-energy">72%</output></label>
-            <input type="range" id="portal-energy" min="20" max="100" step="1" value="72" aria-label="Reactor power">
-            <button type="button" class="portal-trigger" id="portal-trigger">UNLEASH ENERGY <span aria-hidden="true">↗</span></button>
-            <button type="button" class="portal-capture" id="portal-capture" aria-label="Save a picture of the current dimension">SAVE ART <span aria-hidden="true">↓</span></button>
+          <div class="sculpture-tools">
+            <button type="button" id="sculpture-reset" class="sculpture-tool">RESET VIEW ↺</button>
+            <button type="button" id="sculpture-spin" class="sculpture-tool" aria-pressed="true">AUTO-ROTATE: ON</button>
+            <button type="button" id="sculpture-save" class="sculpture-save">SAVE A FRAME ↓</button>
           </div>
         </div>
       </div>
-      <div class="portal-endnote"><span>MADE OF MATH, LIGHT AND A LITTLE CHAOS.</span><span>NO EXTERNAL LIBRARIES. NO TRACKING. 100% YOURS.</span></div>
+      <div class="sculpture-footnote"><span>REAL GEOMETRY. REAL REFLECTIONS. NO TRACKING.</span><span>AN EXPERIMENT, NOT A PRODUCT RENDER.</span></div>
     </section>
 
     <section class="statement-section" aria-label="Design philosophy">
@@ -210,7 +206,7 @@
     </section>
   </main>
 
-  <footer class="footer"><div><a href="#top" class="footer-logo">ziz✳</a><span>© <span id="year">2026</span> ZIZ. MADE WITH CURIOSITY.</span></div><div class="footer-controls"><button class="footer-switch" id="theme-toggle" type="button" aria-pressed="false">THEME: <span>NOCTURNE</span></button><button class="footer-switch" id="motion-toggle" type="button" aria-pressed="true">MOTION: <span>ON</span></button><a href="#top">BACK TO TOP ↑</a></div></footer>
+  <footer class="footer"><div><a href="#top" class="footer-logo">ziz✳</a><span>ZIZ / <span id="year">2026</span> · MADE WITH CURIOSITY.</span></div><div class="footer-controls"><button class="footer-switch" id="theme-toggle" type="button" aria-pressed="false">THEME: <span>NOCTURNE</span></button><button class="footer-switch" id="motion-toggle" type="button" aria-pressed="true">MOTION: <span>ON</span></button><a href="./privacy.html">PRIVACY</a><a href="#top">BACK TO TOP ↑</a></div></footer>
 
   <dialog id="project-dialog" class="project-dialog" aria-labelledby="dialog-title">
     <button type="button" class="dialog-close" id="dialog-close" aria-label="Close project details">✕</button>
